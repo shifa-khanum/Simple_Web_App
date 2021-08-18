@@ -1,0 +1,160 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+    body {margin:0;}
+
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #333;
+      position: fixed;
+      top: 0;
+      width: 100%;
+  }
+
+  li {
+      float: left;
+  }
+
+  li a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+  }
+
+  li a:hover:not(.active) {
+      background-color: #111;
+  }
+
+  .active {
+      background-color: #04AA6D;
+  }
+</style>
+<script type = "text/javascript">
+
+    function mouseDown(){
+      document.getElementById("testField").innerHTML = "<b>onmousedown event</b>";
+  }
+
+  function mouseUp(){
+      document.getElementById("testField").innerHTML = "<b>onmouseup event</b>";
+  }
+
+  function mouseEnter() {
+      document.getElementById("testField").innerHTML = "<b>onmouseenter event</b>";
+  }
+
+  function mouseLeave() {
+      document.getElementById("testField").innerHTML = "<b>onmouseleave event</b>";
+  }
+
+  function mouseMove(e){
+      var x = e.clientX;
+      var y = e.clientY;
+      var coor = x + "," + y;
+
+      document.getElementById("demo").innerHTML = "<b>Mouse Pointer is moving: </b>" + x + "," + y;
+  }
+
+  function mouseOver(){
+    document.getElementById("nextDemo").innerHTML = "<b>onmouseover event</b>";
+}
+
+function mouseOut(){
+  document.getElementById("demo").innerHTML = "";
+  document.getElementById("testField").innerHTML = "<b>onmouseout event</b>";
+  document.getElementById("nextDemo").innerHTML = "<b>onmouseout event</b>";
+}
+<!--
+      // Form validation code will come here.
+      function validate() {
+
+       if( document.myForm.Name.value == "" ) {
+        alert( "Please provide your name!" );
+        document.myForm.Name.focus() ;
+        return false;
+    }
+    if( document.myForm.EMail.value == "" ) {
+        alert( "Please provide your Email!" );
+        document.myForm.EMail.focus() ;
+        return false;
+    }
+    if( document.myForm.Zip.value == "" || isNaN( document.myForm.Zip.value ) ||
+        document.myForm.Zip.value.length != 5 ) {
+
+        alert( "Please provide a zip in the format #####." );
+    document.myForm.Zip.focus() ;
+    return false;
+}
+if( document.myForm.Country.value == "-1" ) {
+    alert( "Please provide your country!" );
+    return false;
+}
+return( true );
+}
+   //-->
+</script>
+</head>
+<body>
+
+    <ul>
+      <li><a class="active" href="#home">Register form</a></li>
+      <li><a href="#news">News</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#about">About</a></li>
+  </ul>
+
+  <div style="padding:20px;margin-top:30px;background-color:#1abc9c;height:1500px;">
+    <form name = "myForm" action="responsee.php" method="post" onsubmit = "return(validate());">
+       <table cellspacing = "2" cellpadding = "2" border = "1">
+
+        <tr>
+         <td align = "right">Student Name</td>
+         <td><input type = "text" name = "studentName" /></td>
+     </tr>
+
+     <tr>
+         <td align = "right">Student emailid</td>
+         <td><input type = "text" name = "email" /></td>
+     </tr>
+
+     <tr>
+         <td align = "right">Zip Code</td>
+         <td><input type = "text" name = "number" /></td>
+     </tr>
+
+     <tr>
+         <td align = "right">Country</td>
+         <td>
+          <select name = "county">
+           <option value = "-1" selected>[choose yours]</option>
+           <option value = "U">USA</option>
+           <option value = "UK">UK</option>
+           <option value = "3">INDIA</option>
+       </select>
+   </td>
+</tr>
+
+<tr>
+ <td align = "right"></td>
+ <td><input type = "submit" value = "Submit" /></td>
+</tr>
+
+</table>
+</form>   
+<div id="testField" onmousedown="mouseDown()" onmouseup="mouseUp()" onmouseenter="mouseEnter()" onmouseleave="mouseLeave()" onmousemove="mouseMove(event)" onmouseover="mouseOver()" onmouseout="mouseOut()">
+  <strong>Testing Javascript mouse events</strong>
+</div>
+<div id="demo"></div>
+<div id="nextDemo"></div>
+
+</div>
+
+</body>
+</html>
